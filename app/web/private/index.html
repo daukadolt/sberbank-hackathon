@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css"
+    </head>
+    <body>
+      <div class="container">
+        <h1>Сбербанк API</h1>
+          <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Назавание методов</th>
+        <th scope="col">URL</th>
+        <th scope="col">Краткое объяснение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td><a class="method" href="">GET</a></td>
+        <td>htttp://localhost:9200/bank_accounts/</td>
+        <td>Получить список всех банковских аккаунтов.</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td><a class="method" href="">GET</a></td>
+        <td>htttp://localhost:9200/bankaccounts/:id</td>
+        <td>Получить уникальный ID указанного банковского аккаунта</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td><a class="method" href="">POST</a></td>
+        <td>htttp://localhost:9200/bankaccount</td>
+        <td>Создание нового банковского аккаунта</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td><a class="method" href="">PUT</a></td>
+        <td>htttp://localhost:9200/bankaccounts/:id</td>
+        <td>Обновить детали банковского аккаунта.</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td><a class="method" href="">DELETE</a></td>
+        <td>htttp://localhost:9200/bankaccounts/:id</td>
+        <td>Удалить банковский аккаунт с ID указанным в URL.</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td><a class="method" href="">GET</a></td>
+        <td>htttp://localhost:9200/bankaccounts/:id/balance</td>
+        <td>Получить баланс банковского аккаунта с ID указанным в URL.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">HTTP статус</th>
+      <th scope="col">Значение</th>
+    </tr>
+  </thead>
+  <hr>
+  <tbody>
+    <tr>
+      <th scope="row"><a class="method" href="#">200</a><p1>OK</p1></th>
+      <td><p1>Запрос получен и успешно обработан</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">202</a><p1>Accepted</p1></th>
+      <td><p1>Запрос был получен и будет обработан в ближайшее время</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">400</a><p1>Bad Request</p1></th>
+      <td><p1>Что-то не в порядке с запросом, проверьте правильность запроса, чтобы устранить ошибку</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">401</a><p1>Unauthorized</p1></th>
+      <td><p1>У вас нет доступа к запрошенным данным</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">403</a><p1>Forbidden</p1></th>
+      <td><p1>Ошибка аутентификации, время действия токена истекло или запрос находится за пределами доступа</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">404</a><p1>Not Found</p1></th>
+      <td><p1>Запрошенный ресурс не существует</p1></td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a class="method" href="#">500</a><p1>Server Error</p1></th>
+      <td><p1>Произошла ошибка со стороны сервера. Пожалуйста перезагрузите страницу позднее.</p1></td>
+
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </body>
+</html>

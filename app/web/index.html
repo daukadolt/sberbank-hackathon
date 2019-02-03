@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery-3.3.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/myscript.js"></script>
+    </head>
+    <body>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="login-tab togglable-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Логин</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="register-tab togglable-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Регистрация</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <form method="POST" action="/auth" id="authForm">
+                                    <div class="form-group">
+                                      <label for="exampleInputEmail1">Логин</label>
+                                      <input name="login" type="login" class="form-control" aria-describedby="emailHelp" placeholder="Введите логин">
+                                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Пароль</label>
+                                      <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Введите пароль">
+                                    </div>
+                                    <div class="form-group form-check">
+                                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                      <label class="form-check-label" for="exampleCheck1">Запомнить</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Авторизоваться</button>
+                                </form>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <form method="POST" action="/register" id = "registerForm" onsubmit="beforeSubmit()">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Логин</label>
+                                    <input name="login" type="login" class="form-control" aria-describedby="emailHelp" placeholder="Введите логин">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Пароль</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Введите пароль" onchange="testEquality()">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputPassword1">Повторите пароль</label>
+                                        <input name="password_verify" type="password" class="form-control"  placeholder="Повторите пароль" onchange="testEquality()">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputPassword1">Номер телефона</label>
+                                        <input name="telnum" type="text" class="form-control"  placeholder="Введите номер телефона">
+                                </div>
+                                <button onclick="beforeSubmit()" class="btn btn-primary">Регистрация</button>
+                            </form>
+                    </div>
+
+                  </div>
+    </body>
+
+    <script>
+
+    $("input.form-control").on({
+        keydown: function(e) {
+        if (e.which === 32)
+            return false;
+        },
+        change: function() {
+            this.value = this.value.replace(/\s/g, "");
+        }
+    });
+
+    function testEquality() {
+        var first = $("#registerForm").find("input")[1]
+        var second = $("#registerForm").find("input")[2]
+        if(first.value == second.value && first.value != "" && second.value != "") {
+            first = $(first)
+            second = $(second)
+            first.removeClass("is-invalid")
+            second.removeClass("is-invalid")
+            first.addClass("is-valid")
+            second.addClass("is-valid")
+        } else {
+            first = $(first)
+            second = $(second)
+            first.removeClass("is-valid")
+            second.removeClass("is-valid")
+            first.addClass("is-invalid")
+            second.addClass("is-invalid")
+        }
+    }
+
+    function beforeSubmit() {
+        var first = $("#registerForm").find("input")[1]
+        var second = $("#registerForm").find("input")[2]
+        if(first.value == second.value && first.value != "" && second.value != "") {
+            return true;
+        }
+        else {
+            alert("Error")
+        }
+    }
+
+
+
+    function genSMS() {
+        if($("#registerForm").find("input")[1].value == $("#registerForm").find("input")[2])
+        var data = {
+            "login": $("#registerForm").find("input")[0].value,
+            "password": $("#registerForm").find("input")[1].value
+        }
+        // $.ajax({
+        //     type: "POST",
+        //     url: "http://localhost:8000/"
+        // })
+    }
+    
+    function checkSMS() {
+
+    }
+
+    </script>
+
+</html>

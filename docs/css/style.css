@@ -1,0 +1,24 @@
+.method{
+    padding: 4px 12px;
+  border: 1px solid;
+  line-height: 25px;
+  border-radius: 4px;
+  background: rgba(0,0,0,.05);
+  font-family: Source Code Pro,monospace;
+  font-weight: 400;
+  color: #2f4ea5;
+  overflow-wrap: break-word;
+  }
+  p1{
+    margin: 10px;
+    padding: 10px;
+    font-style:normal;
+    vertical-align: middle;
+  }
+  h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  body{
+    background-color: rgba(0,0,0,.05);
+  }
